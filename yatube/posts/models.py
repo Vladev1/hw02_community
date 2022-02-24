@@ -28,5 +28,3 @@ class Post(models.Model):
         on_delete=models.SET_NULL,
         related_name='posts'
     )
-
-# Create your models here.
