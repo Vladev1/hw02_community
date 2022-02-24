@@ -1,0 +1,38 @@
+<!DOCTYPE html> 
+<html lang="ru">   
+  {% extends 'base.html' %}       
+  <head>
+    <title>
+      {% block title %}
+        {{ group.title }}
+      {% endblock %}
+    </title>
+  </head>
+  <body>
+    <header>
+    </header>
+    <main>
+      {% block content %}
+        <br>
+        <div class="container">
+          <h1>{{ group.title }}</h1>
+          <p>{{group.description}}</p>
+          {% for post in posts %}
+            <ul>
+              <li>
+                Автор: {{ post.author.get_full_name }}
+              </li>
+              <li>
+                Дата публикации: {{ post.pub_date|date:"d E Y" }}
+              </li>
+            </ul>
+            <p>{{ post.text }}</p>        
+            {% if not forloop.last %}<hr>{% endif %}
+          {% endfor %}
+        </div>
+      {% endblock %} 
+    </main>
+    <footer>
+    </footer>
+  </body>
+</html> 
