@@ -21,6 +21,6 @@ app_name = 'posts'
 urlpatterns = [
     path('', views.index, name='index'),
     # Главная стрница
-    path('group/<slug>/', views.group_posts, name='group_list')
+    path('group/<slug:slug>/', views.group_posts, name='group_list')
     # Информация о группах постов
 ]
