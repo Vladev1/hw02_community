@@ -21,6 +21,10 @@ app_name = 'posts'
 urlpatterns = [
     path('', views.index, name='index'),
     # Главная стрница
-    path('group/<slug:slug>/', views.group_posts, name='group_list')
+    path('group/<slug:slug>/', views.group_posts, name='group_list'),
     # Информация о группах постов
+    # Профайл пользователя
+    path('profile/<str:username>/', views.profile, name='profile'),
+    # Просмотр записи
+    path('posts/<int:post_id>/', views.post_detail, name='post_detail'),
 ]

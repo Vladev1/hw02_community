@@ -4,7 +4,7 @@
 {% endblock %}
 {% block content %}
   <h1> Последние обновления на сайте </h1>
-  {% for post in posts %}
+  {% for post in page_obj %}
     {% include 'posts/includes/main.html' %}
     {% if post.group %}
       <a href="{% url 'posts:group_list' post.group.slug %}">
@@ -12,4 +12,5 @@
     {% endif %}
     {% if not forloop.last %}<hr>{% endif %}
   {% endfor %}
+  {% include 'posts/includes/paginator.html' %}
 {% endblock %}
